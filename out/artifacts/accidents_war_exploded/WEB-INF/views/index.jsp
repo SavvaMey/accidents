@@ -21,6 +21,7 @@
 </head>
 <body>
 <div class="card" style="width: 100%">
+    <a href="<c:url value='/create'/>">Добавить инцидент</a>
     <div class="card-header">
         Юзеры
     </div>
@@ -32,6 +33,7 @@
                 <th scope="col">Название</th>
                 <th scope="col">Описание</th>
                 <th scope="col">Адрес</th>
+                <th scope="col">Редактировать</th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +43,9 @@
                     <td><c:out value="${accident.name}"/></td>
                     <td><c:out value="${accident.text}"/></td>
                     <td><c:out value="${accident.address}"/></td>
+                    <td>
+                        <a href='<c:url value="/edit?id=${accident.id}"/>'> Редактировать</a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>

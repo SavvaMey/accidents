@@ -9,15 +9,29 @@ import java.util.HashMap;
 @Repository
 public class AccidentMem {
     private final HashMap<Integer, Accident> accidentHashMap = new HashMap<>();
+    private static int idAcc;
 
     public AccidentMem() {
-        accidentHashMap.put(1, new Accident(1, "accident", "bmw-lada", "moscow"));
-        accidentHashMap.put(2, new Accident(2, "accident", "bmw-men", "spb"));
-        accidentHashMap.put(3, new Accident(3, "accident", "bike-track", "moscow"));
+        accidentHashMap.put(++idAcc, new Accident(1, "accident", "bmw-lada", "moscow"));
+        accidentHashMap.put(++idAcc, new Accident(2, "accident", "bmw-men", "spb"));
+        accidentHashMap.put(++idAcc, new Accident(3, "accident", "bike-track", "moscow"));
     }
 
 
     public HashMap<Integer, Accident> getAccidentHashMap() {
         return accidentHashMap;
+    }
+
+    public void  create(Accident accident) {
+        accident.setId(++idAcc);
+        accidentHashMap.put(accident.getId(), accident);
+    }
+
+    public Accident findById(int id) {
+        return accidentHashMap.get(id);
+    }
+
+    public Accident updateAcc(Accident accident) {
+        return accidentHashMap.put(accident.getId(), accident);
     }
 }
