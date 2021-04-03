@@ -12,7 +12,7 @@ public class Accident {
     private AccidentType type;
     private Set<Rule> rules = new HashSet<>();
 
-    public Accident () {
+    public Accident() {
     }
 
     public Accident(int id, String name, String text, String address, AccidentType accidentType) {
