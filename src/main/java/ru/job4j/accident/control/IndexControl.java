@@ -16,6 +16,7 @@ public class IndexControl {
 
     @GetMapping("/")
     public String index(Model model) {
+        accidentService.AccidentGetAll().forEach(accident -> System.out.println(accident.getType()));
         model.addAttribute("accidents", accidentService.AccidentGetAll());
         return "index";
     }
