@@ -35,6 +35,7 @@
                 <th scope="col">Адрес</th>
                 <th scope="col">Тип происшествия</th>
                 <th scope="col">Редактировать</th>
+                <th scope="col">Нарушения статей</th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +48,13 @@
                     <td><c:out value="${accident.type.name}"/></td>
                     <td>
                         <a href='<c:url value="/edit?id=${accident.id}"/>'> Редактировать</a>
+                    </td>
+                    <td>
+                        <ul>
+                        <c:forEach items="${accident.rules}" var="rule">
+                          <li> ${rule.name} </li>
+                        </c:forEach>
+                        </ul>
                     </td>
                 </tr>
             </c:forEach>
