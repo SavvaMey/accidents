@@ -29,16 +29,10 @@ public class AccidentControl {
         return "accident/edit";
     }
 
-    @PostMapping("/edit")
-    public String updateAccident(@RequestParam("id") int id, @ModelAttribute Accident accident) {
-        accident.setId(id);
-        accidents.update(accident);
-        return "redirect:/";
-    }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident) {
-        accidents.create(accident);
+        accidents.createOrUpdate(accident);
         return "redirect:/";
     }
 }

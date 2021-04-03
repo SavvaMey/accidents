@@ -22,6 +22,14 @@ public class AccidentService {
         accidentMem.create(accident);
     }
 
+    public void createOrUpdate(Accident accident) {
+        if (accident.getId() == 0) {
+            this.create(accident);
+        } else {
+            this.update(accident);
+        }
+    }
+
     public void update(Accident accident) {
         accidentMem.updateAcc(accident);
     }

@@ -12,8 +12,12 @@
     <title>Title</title>
 </head>
 <body>
-<form action="<c:url value='/edit?id=${accident.id}'/>" method='POST'>
+<form action="<c:url value='/save'/>" method='POST'>
     <table>
+        <tr>
+            <td>id:</td>
+            <td><input type='text' readonly  name='id' value="${accident.id}"></td>
+        </tr>
         <tr>
             <td>Название:</td>
             <td><input type='text' name='name' value="${accident.name}"></td>
