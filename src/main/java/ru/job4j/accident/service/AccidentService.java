@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-@Service
+//@Service
 public class AccidentService {
     private final AccidentMem accidentMem;
 

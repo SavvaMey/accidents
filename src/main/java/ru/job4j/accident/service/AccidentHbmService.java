@@ -1,46 +1,48 @@
 package ru.job4j.accident.service;
 
+
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentJdbcTemplate;
+import ru.job4j.accident.repository.AccidentHibernate;
 
 import java.util.Collection;
 import java.util.List;
 
-//@Service
-public class JdbcService {
-    private final AccidentJdbcTemplate accidentJdbcTemplate;
+@Service
+public class AccidentHbmService {
+    private final AccidentHibernate accidentHibernate;
 
-    public JdbcService(AccidentJdbcTemplate accidentJdbcTemplate) {
-        this.accidentJdbcTemplate = accidentJdbcTemplate;
+    public AccidentHbmService(AccidentHibernate accidentHibernate) {
+        this.accidentHibernate = accidentHibernate;
     }
 
+
     public Collection<Accident> accidentGetAll() {
-        return accidentJdbcTemplate.getAll();
+        return accidentHibernate.getAll();
     }
 
     public List<AccidentType> getAccidentTypesList() {
-        return accidentJdbcTemplate.getAccidentTypes();
+        return accidentHibernate.getAccidentTypes();
     }
 
     public Collection<Rule> getAllRule() {
-        return accidentJdbcTemplate.getRules();
+        return accidentHibernate.getRules();
     }
-
+//
     public Accident findAccident(int id) {
-        return accidentJdbcTemplate.findById(id);
+        return accidentHibernate.findById(id);
     }
-
+//
     public Rule findByIdRule(int id) {
-        return accidentJdbcTemplate.findRule(id);
+        return accidentHibernate.findRule(id);
     }
-
-    public AccidentType findTypeById(int id) {
-        return accidentJdbcTemplate.findType(id);
-    }
-
+//
+//    public AccidentType findTypeById(int id) {
+//        return accidentHibernate.findType(id);
+//    }
+//
     public void createOrUpdate(Accident accident) {
         if (accident.getId() == 0) {
             this.create(accident);
@@ -50,10 +52,10 @@ public class JdbcService {
     }
 
     public void create(Accident accident) {
-        accidentJdbcTemplate.create(accident);
+        accidentHibernate.create(accident);
     }
 
     public void update(Accident accident) {
-        accidentJdbcTemplate.updateAcc(accident);
+        accidentHibernate.updateAcc(accident);
     }
 }

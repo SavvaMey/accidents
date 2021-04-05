@@ -8,7 +8,7 @@ import ru.job4j.accident.model.Rule;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class AccidentMem {
     private final HashMap<Integer, Accident> accidentHashMap = new HashMap<>();
     private static int idAcc;
