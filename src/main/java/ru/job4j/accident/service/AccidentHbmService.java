@@ -10,7 +10,7 @@ import ru.job4j.accident.repository.AccidentHibernate;
 import java.util.Collection;
 import java.util.List;
 
-@Service
+//@Service
 public class AccidentHbmService {
     private final AccidentHibernate accidentHibernate;
 

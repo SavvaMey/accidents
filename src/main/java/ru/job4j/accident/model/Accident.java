@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "accidents")
+
 public class Accident {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,7 @@ public class Accident {
     @JoinColumn(name = "type_id")
     private AccidentType type;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "accident_rules",
             joinColumns = {@JoinColumn(name = "accident_id", referencedColumnName = "id")},
@@ -130,4 +131,15 @@ public class Accident {
         return Objects.hash(id, name, text, address);
     }
 
+    @Override
+    public String toString() {
+        return "Accident{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", text='" + text + '\''
+                + ", address='" + address + '\''
+                + ", type=" + type
+                + ", rules=" + rules
+                + '}';
+    }
 }
