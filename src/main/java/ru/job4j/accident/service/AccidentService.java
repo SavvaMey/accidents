@@ -19,7 +19,7 @@ public class AccidentService {
     }
 
     public Collection<Accident> accidentGetAll() {
-        return accidentMem.getAccidentHashMap().values();
+        return accidentMem.getAccidentHashMap();
     }
 
     public void create(Accident accident) {

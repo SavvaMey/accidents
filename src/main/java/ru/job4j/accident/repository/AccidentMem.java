@@ -7,10 +7,11 @@ import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 //@Repository
 public class AccidentMem {
-    private final HashMap<Integer, Accident> accidentHashMap = new HashMap<>();
+    private final Map<Integer, Accident> accidentHashMap = new ConcurrentHashMap<>();
     private static int idAcc;
     private final List<AccidentType> types = List.of(
             AccidentType.of(1, "Две машины"),
@@ -44,8 +45,8 @@ public class AccidentMem {
     }
 
 
-    public HashMap<Integer, Accident> getAccidentHashMap() {
-        return accidentHashMap;
+    public Collection<Accident> getAccidentHashMap() {
+        return accidentHashMap.values();
     }
 
     public void  create(Accident accident) {
