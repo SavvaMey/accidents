@@ -69,10 +69,10 @@ public class AccidentJdbcTemplate {
 
     public void create(Accident accident) {
         final KeyHolder keyHolder = new GeneratedKeyHolder();
-        String msg_sql =  "insert into accidents (name, text, address, type_id) values (?, ?, ?, ?)";
+        String msgSql =  "insert into accidents (name, text, address, type_id) values (?, ?, ?, ?)";
         jdbc.update(connection -> {
             PreparedStatement ps = connection
-                    .prepareStatement(msg_sql, Statement.RETURN_GENERATED_KEYS);
+                    .prepareStatement(msgSql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, accident.getName());
             ps.setString(2, accident.getText());
             ps.setString(3, accident.getAddress());

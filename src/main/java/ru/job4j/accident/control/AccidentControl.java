@@ -24,7 +24,7 @@ public class AccidentControl {
     private final AccidentJPAService accidents;
 
 
-    public AccidentControl( AccidentJPAService accidents) {
+    public AccidentControl(AccidentJPAService accidents) {
         this.accidents = accidents;
 //        this.accidentHbmService = accidentHbmService;
     }
