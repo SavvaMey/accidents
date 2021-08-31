@@ -24,6 +24,9 @@
     <a href="<c:url value='/create'/>">Добавить инцидент</a>
     <div class="card-header">
         Юзеры
+        <div>
+        Login as : ${user.username}
+            </div>
     </div>
     <div class="card-body">
         <table class="table">
